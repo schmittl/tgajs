@@ -1,9 +1,9 @@
 tgajs
 =====
-
 This is a fork from [jsTGALoader](https://github.com/vthibault/jsTGALoader)
 to learn more about TGA and JavaScript.
 
+Try the online demo [here](http://schmittl.github.io/tgajs/)
 
 Features
 ========
@@ -40,6 +40,6 @@ var tga = new TGA({width: canvas.width, height: canvas.height, imageType: TGA.Ty
 
 tga.setImageData(imageData);
 
-// get a blob url which can be downloaded
+// get a blob url which can be used to download the file
 var url = tga.getBlobURL();
 ```
