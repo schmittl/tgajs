@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TGA Viewer</title>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="wrapper">
+    <div id="info">
+        <p>
+            <a href="http://www.github.com">source</a> on github
+            <span id="separator">&gt;&lt;</span>
+            hosted on <a href="http://www.github.com">github</a>
+        </p>
+    </div>
+    <div id="header">
+        <h1>TGA Viewer</h1>
+        <p>View TGA files in your Browser and inspect their metadata</p>
+        <p>Try selecting a file from the right or drag a local file onto the window</p>
+    </div>
+    <canvas id="canvas"></canvas>
+</div>
+<script src="lib/tga.js"></script>
+<script src="lib/dat.gui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

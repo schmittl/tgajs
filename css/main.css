@@ -1,0 +1,88 @@
+html, body {
+    margin: 0;
+    background-color: #222222;
+    color: #eeeeee;
+    height: 100%;
+}
+
+#info {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 5px;
+    text-align:center;
+    color: #ffffff;
+    font-size: x-small;
+}
+
+#info a {
+    color: #1ed36f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#info p {
+    display: inline-block;
+    margin: 0;
+}
+
+#info span#separator {
+    color: #1ed36f;
+    font-weight: bolder;
+    font-size: 1em;
+}
+
+#wrapper {
+    margin: 0 auto;
+    min-height: 100%;
+    font-family: Lucida Grande, sans-serif;
+}
+
+#header {
+    text-align: center;
+    padding: 5px;
+}
+
+#canvas {
+    display: block;
+    margin: 50px auto;
+    left: 0;
+    right: 0;
+}
+
+/* dat gui customization */
+.dg .c select {
+    border: 1px;
+    min-width: 100%;
+    max-width: 100%;
+    background: #303030;
+    color: #1ed36f;
+    float: right;
+}
+
+.dg .c select:hover {
+    background: #3c3c3c;
+}
+
+.dg .c select option {
+    background: #222;
+    border-top: 1px solid #444;
+}
+
+.dg .c input, .dg .c select {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.dg .has-slider input[type=text] {
+    margin-left: 3px !important;
+}
+
+.dg .slider {
+    margin-left: 0 !important;
+    height: 15px !important;
+    padding: 3px !important;
+    width: auto !important;
+    overflow: hidden !important;
+    float: none !important;
+}
