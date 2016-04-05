@@ -1,8 +1,21 @@
-jsTGALoader
-===========
+tgajs
+=====
 
-Lot of games are using TGA files to store textures.
-So, since browsers try to bring games in the web it can be a good idea (or not) to have a TGA loader.
+This is a fork from [jsTGALoader](https://github.com/vthibault/jsTGALoader)
+to learn more about TGA and JavaScript.
+
+
+Features
+========
+
+* Display tga files on canvas elements
+* Decode
+    * RGB 16/24/32 bits (Uncompressed and RLE compressed)
+    * Black & White 8/16 bits (Uncompressed and RLE compressed)
+    * Color Mapped 8 bits (Uncompressed and RLE compressed)
+* Honors the attribute type and origin fields
+* Encode [ImageData](https://developer.mozilla.org/en/docs/Web/API/ImageData) to tga format (experimental)
+Only supports RGB 32 bits with optional RLE encoding
 
 How to Use
 ==========
@@ -10,18 +23,23 @@ How to Use
 Loading a remote tga file
 ```js
 var tga = new TGA();
-tga.open( "resource.tga", function(){
+tga.open("resource.tga", function() {
    document.body.appendChild( tga.getCanvas() );
 });
 ```
 
-Loading a tga from data
+Loading a tga from an [ArrayBuffer](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
 ```js
 var tga = new TGA();
-tga.load(tga_data); // tga_data must be a Uint8Array
+tga.load(tga_data);
 ```
 
-Used by
-======
-- ThreeJS (https://github.com/mrdoob/three.js)
-- BabylonJS (https://github.com/BabylonJS/Babylon.js)
+Create a tga file example
+```js
+var tga = new TGA({width: canvas.width, height: canvas.height, imageType: TGA.Type.RLE_RGB});
+
+tga.setImageData(imageData);
+
+// get a blob url which can be downloaded
+var url = tga.getBlobURL();
+```
