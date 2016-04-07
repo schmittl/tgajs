@@ -194,7 +194,10 @@
     // Indexed type
     if (header.hasColorMap) {
       if (header.colorMapLength > 256 || header.colorMapType !== 1) {
-        throw new Error('Targa::checkHeader() - Invalid colormap for indexed type');
+        throw new Error('Targa::checkHeader() - Unsupported colormap for indexed type');
+      }
+      if (header.colorMapDepth !== 16 && header.colorMapDepth !== 24  && header.colorMapDepth !== 32) {
+        throw new Error('Targa::checkHeader() - Unsupported colormap depth');
       }
     }
     else {
@@ -216,6 +219,12 @@
       throw new Error('Targa::checkHeader() - Invalid pixel size "' + header.pixelDepth + '"');
     }
 
+    // Check alpha size
+    if (header.alphaBits !== 0 &&
+        header.alphaBits !== 1 &&
+        header.alphaBits !== 8) {
+      throw new Error('Targa::checkHeader() - Unsuppported alpha size');
+    }
   }
 
 
@@ -223,7 +232,6 @@
    * Decode RLE compression
    *
    * @param {Uint8Array} data
-   * @param {number} offset in data to start loading RLE
    * @param {number} bytesPerPixel bytes per Pixel
    * @param {number} outputSize in byte: width * height * pixelSize
    */
@@ -277,7 +285,7 @@
    * @param imageData from canvas to compress
    */
   function encodeRLE(header, imageData) {
-    var maxRepetitionCount = 127;
+    var maxRepetitionCount = 128;
     var i;
     var data = imageData;
     var output = []; // output size is unknown
