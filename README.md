@@ -12,7 +12,7 @@ Features
 * Decode
     * RGB 16/24/32 bits (Uncompressed and RLE compressed)
     * Black & White 8/16 bits (Uncompressed and RLE compressed)
-    * Color Mapped 8 bits (Uncompressed and RLE compressed)
+    * Color Mapped with 8 bits index and 16/24/32 bits depth (Uncompressed and RLE compressed)
 * Honors the attribute type and origin fields
 * Encode [ImageData](https://developer.mozilla.org/en/docs/Web/API/ImageData) to tga format (experimental)
 Only supports RGB 32 bits with optional RLE encoding
